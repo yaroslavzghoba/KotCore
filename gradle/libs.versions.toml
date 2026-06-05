@@ -1,6 +1,9 @@
 [versions]
-project = "0.2.0"
+#noinspection UnusedVersionCatalogEntry
+project = "0.3.0"
+#noinspection UnusedVersionCatalogEntry
 android-minSdk = "24"
+#noinspection UnusedVersionCatalogEntry
 android-compileSdk = "36"
 
 agp = "9.0.1"
@@ -8,9 +11,15 @@ kotlin = "2.3.21"
 vanniktechMavenPublish = "0.36.0"
 
 [libraries]
-kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+# DEPENDENCIES REQUIRED BY THE `build-logic` MODULE.
+kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+android-kotlin-multiplatform-library = { module = "com.android.kotlin.multiplatform.library:com.android.kotlin.multiplatform.library.gradle.plugin", version.ref = "agp" }
+vanniktech-maven-publish = { module = "com.vanniktech.maven.publish:com.vanniktech.maven.publish.gradle.plugin", version.ref = "vanniktechMavenPublish" }
 
 [plugins]
 android-kotlin-multiplatform-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 vanniktech-maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "vanniktechMavenPublish" }
+# CUSTOM PLUGINS DEFINED IN THE `build-logic` MODULE.
+kotcore-kmp-library-targets = { id = "space.zghoba.kotcore.kmp.library.targets", version = "unspecified" }
+kotcore-maven-publishing = { id = "space.zghoba.kotcore.maven.publishing", version = "unspecified" }

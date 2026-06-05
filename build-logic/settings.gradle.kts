@@ -12,8 +12,10 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
-}
 
-rootProject.name = "KotCore"
-includeBuild("build-logic")
-include(":kotcore")
+    versionCatalogs {
+        create("libs") {
+            from(files("../gradle/libs.versions.toml"))
+        }
+    }
+}
